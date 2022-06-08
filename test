@@ -7,9 +7,25 @@ const factories = [
 ```
 
 1. Count Employees Number by Factory // => [ {name: 'BR1', count: 4}, ... ]
+  A:const output=[];
+    for(let i =o;i<factories.length;i++){
+        output.push(factories[i].employees.length);
+    }
 2. Count Factories Number by Employee // => [ {employee: 'John', count: 2}, ... ]
+   A:const output=["John",0,"<br>Alice",0,"<br>Bob",0,"<br>Jessie",0,"<br>Karen",0,"<br>Miles",0,"<br>Eric",0,"<br>Henry",0];
+     const name=["John","Alice","Bob","Jessie","Karen","Miles","Eric","Henry"];
+     for (let i = 0; i < name.length; i++) {
+        for (let j = 0; j < factories.length; j++) {
+      		for (let k = 0; k < factories[j].employees.length; k++) {
+              	if (name[i]==factories[j].employees[k]){
+                	output[(i+1)*2-1]+=1;}
+		      }
+        }
+      }
 3. Order employees list by alphabetical order // =>   { name: "BR2", employees: ["Jessie", "John", "Karen"] }
-
+  A:factories[0].employess=["Alice","Bob","Jessie","John","Karen"];
+    factories[1].employess=["Jessie","John","Karen"];
+    factories[2].employess=["Bob","Eric","Henry","Miles"];
 
 #### Assuming we have a different array
 
@@ -50,5 +66,16 @@ const tasks = [
 ```
 
 4. Count total hours worked in 1 day ? // => 39
+  A:let i=0;
+    for (let k = 0; k < employees.length; k++) {
+              	if (employees[k].type==1) {
+                  i+=8;
+              } else if (employees[k].type==2) {
+                  i+=9;
+              } else {
+                  i+=4;
+              }
+		 }
 5. Make a function that take as parameters dayTime and return number of employee working // howManyEmployeeByTime(time) => int
+  A:
 6. How many days of work needed to done all tasks ? // => 1 day = 9:00 to 00:00 between 00:00 and 09:00 doesnt count.
