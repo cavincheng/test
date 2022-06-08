@@ -75,7 +75,22 @@ const tasks = [
               } else {
                   i+=4;
               }
-		 }
+     }
 5. Make a function that take as parameters dayTime and return number of employee working // howManyEmployeeByTime(time) => int
   A:
 6. How many days of work needed to done all tasks ? // => 1 day = 9:00 to 00:00 between 00:00 and 09:00 doesnt count.
+  A:let hr=0;
+    let i=0;
+    for (let k = 0; k < tasks.length; k++) {
+  	hr=hr+tasks[k].duration;
+	hr=hr/60;}
+    for (let k = 0; k < employees.length; k++) {
+    	if (employees[k].type==1) {
+           i+=8;
+        } else if (employees[k].type==2) {
+           i+=9;
+        } else {
+           i+=4;
+	}
+     }
+     let hr/i=days;
