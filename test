@@ -98,10 +98,12 @@ const tasks = [
 		  if(employees[k].type==2||employees[k].type==3){i+=1;}
 		  }
 	}
-	else {
-		  for (let k = 0; k < employees.length; k++) {
+	else if (time>=21&&time<24) {
+                  for (let k = 0; k < employees.length; k++) {
 		  if(employees[k].type==3){i+=1;}
 		  }
+	}
+	else {i=0;}
 	}
 	return i;
 	}
