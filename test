@@ -8,7 +8,7 @@ const factories = [
 
 1. Count Employees Number by Factory // => [ {name: 'BR1', count: 4}, ... ]
   A:const output=[];
-    for(let i =o;i<factories.length;i++){
+    for(let i =0;i<factories.length;i++){
         output.push(factories[i].employees.length);
     }
 2. Count Factories Number by Employee // => [ {employee: 'John', count: 2}, ... ]
