@@ -32,7 +32,7 @@ const factories = [
 ```
 const employeeType = [
       {id: 1, "name": "FullTime", work_begin: "09:00:00", work_end: "17:00:00"},
-      {id; 2, "name": "MidTime", work_begin: "12:00:00", work_end: "21:00:00"},
+      {id: 2, "name": "MidTime", work_begin: "12:00:00", work_end: "21:00:00"},
       {id: 3, "name": "HalfTime", work_begin: "20:00:00", work_end: "00:00:00"},
 ];
 
@@ -77,36 +77,55 @@ const tasks = [
               }
      }
 5. Make a function that take as parameters dayTime and return number of employee working // howManyEmployeeByTime(time) => int
-  A:function howManyEmployeeByTime(time){
+  A:function howManyEmployeeByTime(time,time1){
   	let i=0;
-	if (time>=9&&time<12) {
-                  for (let k = 0; k < employees.length; k++) {
-		  if(employees[k].type==1){i+=1;}
-		  }
-        } else if (time>=12&&time<17) {
-                  for (let k = 0; k < employees.length; k++) {
-		  if(employees[k].type==1||employees[k].type==2){i+=1;}
-		  }
-        }
-	else if (time>=17&&time<20) {
-                  for (let k = 0; k < employees.length; k++) {
-		  if(employees[k].type==2){i+=1;}
-		  }
-	}
-	else if (time>=20&&time<21) {
-                  for (let k = 0; k < employees.length; k++) {
-		  if(employees[k].type==2||employees[k].type==3){i+=1;}
-		  }
-	}
-	else if (time>=21&&time<24) {
-                  for (let k = 0; k < employees.length; k++) {
-		  if(employees[k].type==3){i+=1;}
-		  }
-	}
-	else {i=0;}
-	}
-	return i;
-	}
+    	if(time>time1){
+    		let text="this function cant work with cross day plz seperate it into two days";//function無法計算跨隔日的須拆成兩天再加總
+		return text;}
+	else{
+		if ((17>time&&time>=9)||(time<9&&time1>=9)) {
+			for (let k = 0; k < employees.length; k++) {
+				if(employees[k].type==1){i+=1;}
+			}
+			if(time1>=12){
+    		       		for (let k = 0; k < employees.length; k++) {
+				  	if(employees[k].type==2){i+=1;}
+    		        	}
+			}
+			if(time1>=20){
+    		       		for (let k = 0; k < employees.length; k++) {
+			  		if(employees[k].type==3){i+=1;}
+				}
+			}
+		}
+		else if (time>=12&&time<21) {
+  	        	for (let k = 0; k < employees.length; k++) {
+				if(employees[k].type==2){i+=1;}
+			}
+	          	if(time>=12&&time<15){
+	          		for (let k = 0; k < employees.length; k++) {
+					if(employees[k].type==1){i+=1;}
+					}
+			}
+			if(time==20){
+				for (let k = 0; k < employees.length; k++) {
+					if(employees[k].type==3){i+=1;}
+				}
+			}
+			if(time1>=20&&time!=20){
+				for (let k = 0; k < employees.length; k++) {
+					if(employees[k].type==3){i+=1;}
+				}
+			}
+		}
+		else if (time>=20&&time<24) {
+			for (let k = 0; k < employees.length; k++) {
+				if(employees[k].type==3){i+=1;}
+			}
+		}
+		else {i=0;}
+	return i;}
+}
 6. How many days of work needed to done all tasks ? // => 1 day = 9:00 to 00:00 between 00:00 and 09:00 doesnt count.
   A:let hr=0;
     let i=0;
